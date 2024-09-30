@@ -1,0 +1,30 @@
+services:
+  app:
+    build:
+      dockerfile: Dockerfile-dev
+    volumes:
+      - ./:/rails:cached
+    depends_on:
+      - database
+    environment:
+      DATABASE_URL: "postgres://postgres:password@database/simple_together_development"
+    command: ./bin/thrust ./bin/rails server -b 0.0.0.0
+    ports:
+      - 3000:3000
+  database:
+    image: postgres:17.0-bullseye
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - db:/var/lib/postgresql/data
+
+volumes:
+  db:
