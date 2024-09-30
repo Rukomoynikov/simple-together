@@ -3,10 +3,14 @@ require 'rails_helper'
 RSpec.describe Project, type: :model do
   describe 'validations' do
     context 'when params are valid' do
+      let(:project_attributes) { attributes_for(:project) }
+
       it 'saves the record into db' do
         expect {
-          Project.create(title: 'My wonderfull project', description: 'Hey its gonna rock the world')
-        }.to change { Project.count }.from(0).to(1)
+          Project.create(project_attributes)
+        }.to change {
+          Project.count
+        }.from(0).to(1)
       end
     end
   end
