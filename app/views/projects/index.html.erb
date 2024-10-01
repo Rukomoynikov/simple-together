@@ -1,0 +1,7 @@
+<turbo-frame id="<%= dom_id(@project) %>">
+    <%= render partial: 'form', locals: { project: @project } %>
+</turbo-frame>
+
+<%= turbo_frame_tag "projects_list" do %>
+    <%= render ProjectsListComponent.new(projects: @projects) %>
+<% end %>
