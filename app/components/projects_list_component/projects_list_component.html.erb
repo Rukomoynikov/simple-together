@@ -1,0 +1,6 @@
+<div data-controller="projects-list-component--projects-list-component">
+  <% @projects.each do |project| %>
+      <%= project.title %>
+      <p><%= project.description %></p>
+  <%end %>
+</div>

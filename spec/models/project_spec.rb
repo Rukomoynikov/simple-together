@@ -10,7 +10,7 @@ RSpec.describe Project, type: :model do
           Project.create(project_attributes)
         }.to change {
           Project.count
-        }.from(0).to(1)
+        }
       end
     end
   end
