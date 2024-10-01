@@ -7,7 +7,7 @@ RSpec.describe ProjectsListComponent, type: :component do
 
   it "renders something useful" do
     expect(
-      render_inline(described_class.new(projects: [project])).to_html
+      render_inline(described_class.new(projects: [ project ])).to_html
     ).to include(
       project.title
     )
