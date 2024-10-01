@@ -1,0 +1,5 @@
+<%= turbo_stream.replace @project do %>
+    <turbo-frame id="<%= dom_id(@project) %>">
+        <%= render partial: 'form', locals: { project: @project } %>
+    </turbo-frame>
+<% end %>

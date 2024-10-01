@@ -1,0 +1,7 @@
+<%= turbo_stream.replace dom_id(Project.new),
+    partial: "form",
+    locals: { project: Project.new } %>
+
+<%= turbo_stream.replace "projects_list" do %>
+    <%= render ProjectsListComponent.new(projects: @projects) %>
+<% end %>
