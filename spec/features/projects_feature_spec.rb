@@ -4,6 +4,7 @@ RSpec.feature "Projects", type: :feature do
   context "create new project" do
     before do
       visit root_path
+      click_on "Create project"
     end
 
     context "when params are valid" do
