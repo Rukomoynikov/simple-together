@@ -67,6 +67,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "shoulda-matchers", "~> 6.4"
+  gem "simplecov", "~> 0.22.0", require: false
 end
 
 gem "view_component", "~> 3.16"
