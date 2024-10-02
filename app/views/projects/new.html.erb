@@ -1,1 +1,5 @@
-<%= render partial: 'form', locals: {project: @project} %>
+<turbo-frame id="new_project">
+  <div class="mb-5 p-4 bg-slate-100 rounded">
+    <%= render partial: 'form', locals: {project: @project} %>
+  </div>
+</turbo-frame>
