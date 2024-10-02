@@ -1,10 +1,11 @@
 services:
   app:
+    tty: true
+    stdin_open: true
     build:
       dockerfile: Dockerfile-dev
     volumes:
       - ./:/rails:cached
-      - bundle:/usr/local/bundle
     depends_on:
       - database
       - tailwind
@@ -20,7 +21,6 @@ services:
       dockerfile: Dockerfile-dev
     volumes:
       - ./:/rails:cached
-      - bundle:/usr/local/bundle
     command: ./bin/rails tailwindcss:watch
   database:
     image: postgres:17.0-bullseye
@@ -39,4 +39,3 @@ services:
 
 volumes:
   db:
-  bundle:
