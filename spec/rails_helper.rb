@@ -12,6 +12,7 @@ require 'rspec/rails'
 require "view_component/test_helpers"
 require "view_component/system_test_helpers"
 require "capybara/rspec"
+require 'simplecov'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -37,6 +38,8 @@ begin
 rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
+
+SimpleCov.start
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
