@@ -1,7 +1,11 @@
 <div data-controller="projects-list-component--projects-list-component">
     <% @projects.each do |project| %>
         <turbo-frame id="<%= dom_id(project) %>">
-            <%= project.title %>
+            <%= link_to "Show proj",
+                        project,
+                        data: { turbo_frame: "sidebar" },
+                        class: "btn btn--primary" %>
+
             <p><%= project.description %></p>
         </turbo-frame>
     <% end %>

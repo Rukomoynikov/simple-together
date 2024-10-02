@@ -1,0 +1,14 @@
+<div data-controller="comment-form-component--comment-form-component">
+    <%= form_with model: comment do |form| %>
+        <%= form.hidden_field :project_id %>
+
+        <fieldset class="contents">
+            <%= form.label :body %>
+            <%= form.text_field :body %>
+        </fieldset>
+
+        <fieldset class="contents">
+            <%= form.submit class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' %>
+        </fieldset>
+    <% end %>
+</div>

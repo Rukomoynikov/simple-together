@@ -1,0 +1,7 @@
+<div data-controller="comments-list-component--comments-list-component">
+    <% @comments.each do |comment| %>
+        <turbo-frame id="<%= dom_id(comment) %>">
+            <%= comment.body %>
+        </turbo-frame>
+    <% end %>
+</div>

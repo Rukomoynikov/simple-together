@@ -4,13 +4,24 @@ services:
       dockerfile: Dockerfile-dev
     volumes:
       - ./:/rails:cached
+      - bundle:/usr/local/bundle
     depends_on:
       - database
+      - tailwind
     environment:
       DATABASE_URL: "postgres://postgres:password@database/simple_together_development"
     command: ./bin/thrust ./bin/rails server -b 0.0.0.0
     ports:
       - 3000:3000
+  tailwind:
+    tty: true
+    stdin_open: true
+    build:
+      dockerfile: Dockerfile-dev
+    volumes:
+      - ./:/rails:cached
+      - bundle:/usr/local/bundle
+    command: ./bin/rails tailwindcss:watch
   database:
     image: postgres:17.0-bullseye
     healthcheck:
@@ -28,3 +39,4 @@ services:
 
 volumes:
   db:
+  bundle:

@@ -5,3 +5,7 @@
 <%= turbo_frame_tag "projects_list" do %>
     <%= render ProjectsListComponent.new(projects: @projects) %>
 <% end %>
+
+<%= turbo_frame_tag "sidebar" do %>
+    Last comments
+<% end %>
