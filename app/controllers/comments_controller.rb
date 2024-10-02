@@ -5,9 +5,11 @@ class CommentsController < ApplicationController
     @comment = @project.comments.new(comment_params)
 
     if @comment.save
+      @comment = @project.comments.new
+
       respond_to do |format|
         format.html { redirect_to projects_path(@project), notice: "New comment arrived" }
-        format.turbo_stream { render "projects/show", locals: { comment: @project.comments.new } }
+        format.turbo_stream
       end
     else
       render :new, status: :unprocessable_entity

@@ -1,20 +1,20 @@
-<div data-controller="project-form-component--project-form-component">
-    <%= form_with model: project do |form| %>
-        <fieldset class="contents">
-            <%= form.label :title %>
-            <% project.errors.full_messages_for(:title).each do |error_message| %>
-            <%= error_message %>
-            <% end %>
-            <%= form.text_field :title %>
-        </fieldset>
+<div data-controller="project-form-component--project-form-component" >
+  <%= form_with model: project, html: { class: 'grid-cols-1' } do |form| %>
+    <fieldset class="contents">
+      <%= form.label :title %>
+      <% project.errors.full_messages_for(:title).each do |error_message| %>
+        <%= error_message %>
+      <% end %>
+      <%= form.text_field :title %>
+    </fieldset>
 
-        <fieldset class="contents">
-            <%= form.label :description %>
-            <%= form.text_area :description %>
-        </fieldset>
+    <fieldset class="contents">
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </fieldset>
 
-        <fieldset class="contents">
-            <%= form.submit class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' %>
-        </fieldset>
-    <% end %>
+    <fieldset class="contents">
+      <%= form.submit class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' %>
+    </fieldset>
+  <% end %>
 </div>
