@@ -1,12 +1,13 @@
 <div data-controller="projects-list-component--projects-list-component">
     <% @projects.each do |project| %>
         <turbo-frame id="<%= dom_id(project) %>">
-            <%= link_to "Show proj",
-                        project,
-                        data: { turbo_frame: "sidebar" },
-                        class: "btn btn--primary" %>
-
-            <p><%= project.description %></p>
+          <%= link_to project,
+                      data: { turbo_frame: "sidebar" } do %>
+            <div class="mb-2 p-4 bg-slate-100 rounded">
+              <p><%= project.title %></p>
+              <p><%= project.description %></p>
+            </div>
+          <% end %>
         </turbo-frame>
     <% end %>
 </div>

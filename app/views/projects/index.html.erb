@@ -1,11 +1,19 @@
-<turbo-frame id="<%= dom_id(@project) %>">
-    <%= render partial: 'form', locals: { project: @project } %>
-</turbo-frame>
+<div class="grid grid-gap gap-x-6 grid-cols-[300px_auto] mt-10">
+  <div>
+    <div class="mb-5 p-4 bg-slate-100 rounded">
+      <turbo-frame id="new_project">
+        <%= render partial: 'form', locals: { project: @project } %>
+      </turbo-frame>
+    </div>
 
-<%= turbo_frame_tag "projects_list" do %>
-    <%= render ProjectsListComponent.new(projects: @projects) %>
-<% end %>
+    <%= turbo_frame_tag "projects_list" do %>
+      <%= render ProjectsListComponent.new(projects: @projects) %>
+    <% end %>
+  </div>
 
-<%= turbo_frame_tag "sidebar" do %>
-    Last comments
-<% end %>
+  <%= turbo_frame_tag "sidebar" do %>
+    <%= render CommentsListComponent.new(comments: @recent_comments,
+                                         title: 'Recent comments from all projects',
+                                         show_project_link: true) %>
+  <% end %>
+</div>

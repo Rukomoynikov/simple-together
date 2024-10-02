@@ -3,8 +3,7 @@
         <%= form.hidden_field :project_id %>
 
         <fieldset class="contents">
-            <%= form.label :body %>
-            <%= form.text_field :body %>
+            <%= form.text_field :body, html: { class: 'rounded' } %>
         </fieldset>
 
         <fieldset class="contents">

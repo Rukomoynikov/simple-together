@@ -4,10 +4,11 @@ class ProjectsController < ApplicationController
   def index
     @project = Project.new
     @projects = Project.recently_updated
+    @recent_comments = Comment.recently_updated
   end
 
   def show
-    @comments = @project.comments
+    @comments = @project.comments.recently_updated
     @comment = @project.comments.new
 
     respond_to do |format|
