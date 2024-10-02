@@ -1,9 +1,19 @@
 class ProjectsController < ApplicationController
-  # before_action :set_project
-  #
+  before_action :set_project, only: :show
+
   def index
     @project = Project.new
     @projects = Project.recently_updated
+  end
+
+  def show
+    @comments = @project.comments
+    @comment = @project.comments.new
+
+    respond_to do |format|
+      format.html
+      format.turbo_stream
+    end
   end
 
   def create
@@ -24,7 +34,7 @@ class ProjectsController < ApplicationController
   private
 
   def set_project
-    @project = Project.find(params[:id])
+    @project = Project.find(params["id"])
   end
 
   def project_params

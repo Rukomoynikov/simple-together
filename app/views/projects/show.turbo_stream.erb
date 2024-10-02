@@ -1,0 +1,8 @@
+<%= turbo_stream.replace 'comment_form' do %>
+    <%= render CommentFormComponent.new(comment: @comment) %>
+<% end  %>
+
+<%= turbo_stream.replace "comments_list" do %>
+    <h4>Comments</h4>
+    <%= render CommentsListComponent.new(comments: @project.comments) %>
+<% end %>
