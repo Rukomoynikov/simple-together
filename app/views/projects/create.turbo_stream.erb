@@ -1,7 +1,13 @@
-<%= turbo_stream.replace dom_id(Project.new),
-    partial: "form",
-    locals: { project: Project.new } %>
+<%= turbo_stream.replace 'new_project' do %>
+  <%= turbo_frame_tag 'new_project' do %>
+    <div class="mb-5 p-4 bg-slate-100 rounded">
+      <%= render partial: "form", locals: { project: Project.new } %>
+    </div>
+  <% end %>
+<% end  %>
 
 <%= turbo_stream.replace "projects_list" do %>
+  <%= turbo_frame_tag "projects_list" do %>
     <%= render ProjectsListComponent.new(projects: @projects) %>
+  <% end %>
 <% end %>
