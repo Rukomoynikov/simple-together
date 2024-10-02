@@ -1,5 +1,7 @@
 <div data-controller="comments-list-component--comments-list-component">
-  <h4 class='font-bold mb-1'><%= title %></h4>
+  <% unless @comments.empty? %>
+    <h4 class='font-bold mb-1'><%= title %></h4>
+  <% end %>
 
   <% @comments.each do |comment| %>
     <turbo-frame id="<%= dom_id(comment) %>">

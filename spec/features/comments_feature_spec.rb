@@ -22,5 +22,17 @@ RSpec.feature "Comments", type: :feature do
         expect(Comment.last.body).to eq(comment_body)
       end
     end
+
+    context "when params are invalid" do
+      scenario "new comment appears in the list" do
+        click_on project.title
+
+        fill_in "comment_body", with: ""
+
+        click_on "Create Comment"
+
+        expect(page).to have_content("Body is too short (minimum is 2 characters)")
+      end
+    end
   end
 end
