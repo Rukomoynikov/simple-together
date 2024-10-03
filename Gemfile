@@ -73,3 +73,5 @@ end
 gem "view_component", "~> 3.16"
 
 gem "tailwindcss-rails", "~> 2.7"
+
+gem "rodauth-rails", "~> 1.15"

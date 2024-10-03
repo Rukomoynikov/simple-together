@@ -74,8 +74,12 @@ GEM
       uri (>= 0.13.1)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
+    after_commit_everywhere (1.4.0)
+      activerecord (>= 4.2)
+      activesupport
     ast (2.4.2)
     base64 (0.2.0)
+    bcrypt (3.1.20)
     bcrypt_pbkdf (1.1.1)
     bcrypt_pbkdf (1.1.1-arm64-darwin)
     bcrypt_pbkdf (1.1.1-x86_64-darwin)
@@ -254,6 +258,21 @@ GEM
     reline (0.5.10)
       io-console (~> 0.5)
     rexml (3.3.8)
+    roda (3.84.0)
+      rack
+    rodauth (2.36.0)
+      roda (>= 2.6.0)
+      sequel (>= 4)
+    rodauth-model (0.2.1)
+      rodauth (~> 2.0)
+    rodauth-rails (1.15.0)
+      bcrypt
+      railties (>= 5.0, < 8)
+      roda (~> 3.76)
+      rodauth (~> 2.36)
+      rodauth-model (~> 0.2)
+      sequel-activerecord_connection (~> 1.1)
+      tilt
     rspec-core (3.13.1)
       rspec-support (~> 3.13.0)
     rspec-expectations (3.13.3)
@@ -308,6 +327,12 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sequel (5.85.0)
+      bigdecimal
+    sequel-activerecord_connection (1.4.3)
+      activerecord (>= 5.0, < 8)
+      after_commit_everywhere (~> 1.1)
+      sequel (~> 5.38)
     shoulda-matchers (6.4.0)
       activesupport (>= 5.2.0)
     simplecov (0.22.0)
@@ -359,6 +384,7 @@ GEM
     thruster (0.1.8-arm64-darwin)
     thruster (0.1.8-x86_64-darwin)
     thruster (0.1.8-x86_64-linux)
+    tilt (2.4.0)
     timeout (0.4.1)
     turbo-rails (2.0.10)
       actionpack (>= 6.0.0)
@@ -408,6 +434,7 @@ DEPENDENCIES
   propshaft
   puma (>= 5.0)
   rails (~> 8.0.0.beta1)
+  rodauth-rails (~> 1.15)
   rspec-rails (~> 7.0)
   rubocop-rails-omakase
   selenium-webdriver
