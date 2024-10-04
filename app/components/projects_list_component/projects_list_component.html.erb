@@ -3,7 +3,7 @@
         <turbo-frame id="<%= dom_id(project) %>">
 
           <%= link_to project,
-                      data: { turbo_frame: "sidebar", turbo_action: "advance" } do %>
+                      data: { turbo_frame: "_top", turbo_action: "advance" } do %>
             <div class="mb-2 p-4 bg-slate-100 rounded">
               <p><%= project.title %></p>
               <p><%= project.description %></p>
