@@ -1,20 +1,21 @@
 <div data-controller="comments-list-component--comments-list-component">
   <% unless @comments.empty? %>
-    <h4 class='font-bold mb-1'><%= title %></h4>
+    <h4 class='font-bold mb-1 dark:text-white'><%= title %></h4>
   <% end %>
 
   <% @comments.each do |comment| %>
     <turbo-frame id="<%= dom_id(comment) %>">
-      <div class="mb-2 p-4 bg-zinc-100 rounded">
+      <div class="mb-2 p-4 bg-zinc-100 rounded bg-slate-100 rounded dark:bg-gray-800 dark:border-gray-700">
         <% if show_project_link %>
           <div>
             <%= link_to comment.project.title,
                         project_path(comment.project_id),
-                        data: { turbo_frame: "sidebar" } %>
+                        data: { turbo_frame: "sidebar" },
+                        class: 'dark:text-white' %>
           </div>
         <% end %>
 
-        <%= comment.body %>
+        <p class="dark:text-slate-400"><%= comment.body %></p>
       </div>
     </turbo-frame>
   <% end %>

@@ -4,9 +4,9 @@
 
           <%= link_to project,
                       data: { turbo_frame: "_top", turbo_action: "advance" } do %>
-            <div class="mb-2 p-4 bg-slate-100 rounded">
-              <p><%= project.title %></p>
-              <p><%= project.description %></p>
+            <div class="mb-2 p-4 bg-slate-100 rounded dark:bg-gray-800 dark:border-gray-700">
+              <p class="dark:text-white"><%= project.title %></p>
+              <p class="dark:text-slate-400"><%= project.description %></p>
             </div>
           <% end %>
         </turbo-frame>
