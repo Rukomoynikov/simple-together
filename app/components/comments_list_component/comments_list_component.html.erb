@@ -10,7 +10,7 @@
           <div>
             <%= link_to comment.project.title,
                         project_path(comment.project_id),
-                        data: { turbo_frame: "sidebar" },
+                        data: { turbo_frame: "content_block", turbo_action: "advance", refresh: "morph" },
                         class: 'dark:text-white' %>
           </div>
         <% end %>
