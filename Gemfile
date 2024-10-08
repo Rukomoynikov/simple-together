@@ -70,7 +70,7 @@ group :test do
   gem "simplecov", "~> 0.22.0", require: false
 end
 
-gem "view_component", "~> 3.16"
+gem "view_component", "~> 3.17"
 
 gem "tailwindcss-rails", "~> 2.7"
 
